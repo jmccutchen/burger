@@ -1,0 +1,50 @@
+<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+    <img src="/public/img/burger.jpg" alt="Burger Pic" class="img-thumbnail">
+</div class="px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+
+<div class="px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+    <h1 class="display-4">Eat-Da Burger</h1>
+</div>
+
+<div class="container">
+    <div class="card-deck mb-3 text-center">
+        <div class="card mb-4 shadow-sm">
+            <div class="card-header">
+                <h4>Burgers to Eat</h4>
+                <ul>
+                    {{#each burger_name}}
+                        {{#unless devoured}}
+                            {{> partials/burger-button }}
+                        {{/unless}}
+                    {{/each}}
+                </ul>
+
+            </div>
+        </div>
+    </div>
+    <div class="card-deck mb-3 text-center">
+        <div class="card mb-4 shadow-sm">
+            <div class="card-header">
+                <h4>Burgers Eaten</h4>
+                <ul>
+                    {{#each burger_name}}
+                        {{#if devoured}}
+                            {{> partials/burger-button }}
+                        {{/if}}
+                    {{/each}}
+                </ul>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<form>
+<div class="form-group">
+    <label for="burgerInput">Enter a burger you want to eat</label>
+    <textarea class="form-control" rows="1"></textarea>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</div>
+
+</form>
+
