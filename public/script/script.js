@@ -1,8 +1,23 @@
-console.log("file loaded")
+$(document).ready(function () {
 
 
+    $("#submit").on("click", function (event) {
+        event.preventDefault();
 
-$("#submit").on("click", function(event){
-    event.preventDefault();
-    console.log("clicked")
-} )
+        let newBurger = {
+            burger_name: $("#newBurger").val().trim()
+        };
+
+        $.ajax("/api/burgers", {
+            type: "POST",
+            data: newBurger
+        }).then(
+            function () {
+                console.log(newBurger);
+                location.reload();
+            }
+        );
+    });
+
+
+})

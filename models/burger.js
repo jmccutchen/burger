@@ -8,7 +8,8 @@ const burger = {
     },
 
     create: function(tableInput, cb){
-        orm.insertOne("burgers", function(res){
+        orm.insertOne(tableInput, function(res){
+            
             cb(res);
         })
     }
