@@ -29,10 +29,7 @@ var orm = {
                 throw err;
             }
             cb(result)
-            console.log("cb")
-            console.log(queryString)
-            console.log("id")
-            console.log(id)
+           
         })
     }
 
