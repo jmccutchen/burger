@@ -22,6 +22,22 @@ router.post("/api/burgers", function(req, res) {
     })
 })
 
+router.put("/api/burgers/:id", function(req, res) {
+  let burgerID = req.params.id;
+
+  console.log("burgerID ", burgerID);
+
+  burger.update(burgerID, {
+    devoured: req.body.devoured
+  }, function(result) {
+    if (result.changedRows == 0) {
+      return res.status(404).end();
+    }else {
+      res.status(200).end();
+    }
+  });
+});
+
 
 
 

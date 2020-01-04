@@ -19,11 +19,22 @@ var orm = {
             }
             cb(result);
         });
+    },
+
+    updateOne: function (id, devoured, cb) {
+        var queryString = "UPDATE burgers SET devoured = true WHERE id = ?";
+
+        connection.query(queryString, [id], function (err, result) {
+            if (err) {
+                throw err;
+            }
+            cb(result)
+            console.log("cb")
+            console.log(queryString)
+            console.log("id")
+            console.log(id)
+        })
     }
-
-    // updateOne: function () {
-
-    // }
 
 };
 
